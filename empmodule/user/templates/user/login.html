@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div style="margin-top: 10vh ;">
+    <label for="">username
+        <input type="text" name="username">
+    </label><br><br>
+    <label for="">
+        password
+        <input type="password" name="password">
+    </label><br><br>
+    <button style="background-color: darkblue;color: white; ; margin-left: 4vw;">Login</button>
+    <button style="background-color: green; color: black;"><a href="{% url 'registerurl' %}">Register</a></button>
+   </div>
+</form>
+{% endblock %}

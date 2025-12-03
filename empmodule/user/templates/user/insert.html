@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="">
+        Empno
+        <input type="text" name="emp_no">
+    </label><br><br>
+    <label for="">
+        First_Name
+        <input type="text" name="First_Name">
+    </label><br><br>
+    <label for="">
+        Second_Name
+        <input type="text" name="Last_Name">
+    </label><br><br>
+    <label for="">
+        Location
+        <input type="text" name="Location">
+    </label><br><br>
+    <label for="">
+        Email
+        <input type="text" name="Email" id="">
+    </label><br><br>
+    <label for="">
+        Salary
+        <input type="text" name="Salary" id="">
+    </label><br><br>
+    <button style="background-color: coral; color: black; margin-left: 5vw;">Submit</button>
+</form>
+<p>{{res}}</p>
+{% endblock %}

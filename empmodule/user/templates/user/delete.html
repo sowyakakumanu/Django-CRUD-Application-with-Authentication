@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Do you want to delete {{res.First_Name}} {{res.Last_Name}} ?</p>
+    <button style="background-color: red;color: white; margin-left: 5vw; margin-top: 2vw;">Confirm</button>
+</form>
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        header .start{
+            height: 10vh;
+            background-color: rgb(190, 190, 183);
+            color: black;
+            display: grid;
+            grid-template-columns: 2fr 30fr 1fr;
+            
+        }
+        header .start .h{
+            margin-top: 30px;
+        }
+
+      
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            width: 100%;
+            margin-top: 20px;
+        }
+        table {
+        border-collapse: collapse;
+    }
+
+    table td, table th {
+        padding: 6px;
+        border: 1px solid black;
+    }
+    button a{
+        color: white;
+    }
+button{
+    text-decoration: none;
+    border-radius: 2px;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="start">
+            <h3 class="h"><a href="{% url 'loginurl' %}">Home</a></h3>
+            <h3 class="h"><a href="{% url 'selecturl' %}">Users</a></h3> 
+            <h3 class="h"><a href="{% url 'logouturl' %}">Logout</a></h3>
+        </div>
+    </header>
+
+    <div class="box">
+        {% block main %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

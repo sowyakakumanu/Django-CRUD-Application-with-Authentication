@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label>
+        First_Name
+        <input type="text" name="First_Name" value="{{ res.First_Name }}">
+    </label><br><br>
+    <label>
+        Last_Name
+        <input type="text" name="Last_Name" value="{{ res.Last_Name }}">
+    </label><br><br>
+    <label>
+        Location
+        <input type="text" name="Location" value="{{ res.Location }}">
+    </label><br><br>
+    <label>
+        Email
+        <input type="text" name="Email" value="{{ res.email }}">
+    </label><br><br>
+    <label>
+        Salary
+        <input type="text" name="Salary" value="{{ res.salary }}">
+    </label><br><br>
+    <button style="background-color: darkblue; border: none; color: white; width: 6vw; height: 4vh; font-size: large;">Edit</button>
+</form>
+
+<p style="color: green;">{{ msg }}</p>
+{% endblock %}
