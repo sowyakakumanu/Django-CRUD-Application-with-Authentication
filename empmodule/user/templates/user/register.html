@@ -5,6 +5,8 @@
     {% for i in form %}
     <p>{{i.label}} {{i}} {{i.errors}}</p><br>
     {% endfor %}
-    <button style="background-color: rgb(10, 50, 85);color: white; margin-left: 6vw;">Register</button>
+    <button style="background-color: rgb(16, 156, 107);color: white; margin-left: 6vw;">Register</button>
+    <button style="background-color: rgb(16, 33, 223);color: white; ; margin-left: 4vw;"><a href="{% url 'loginurl' %}">Login</a></button>
+    
 </form>
 {% endblock %}

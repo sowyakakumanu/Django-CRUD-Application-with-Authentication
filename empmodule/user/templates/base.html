@@ -47,6 +47,7 @@ button{
 </head>
 
 <body>
+    {% if request.resolver_match.url_name != 'loginurl' and  request.resolver_match.url_name != 'registerurl' %}
     <header>
         <div class="start">
             <h3 class="h"><a href="{% url 'loginurl' %}">Home</a></h3>
@@ -54,6 +55,7 @@ button{
             <h3 class="h"><a href="{% url 'logouturl' %}">Logout</a></h3>
         </div>
     </header>
+    {% endif %}
 
     <div class="box">
         {% block main %}
