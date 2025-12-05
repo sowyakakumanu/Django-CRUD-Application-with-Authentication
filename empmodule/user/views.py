@@ -11,12 +11,12 @@ def insertemp(request):
     if request.method == 'GET':
         return render(request, 'user/insert.html')
     if request.method == 'POST':
-        eno = request.POST.get('emp_no', '').strip()
-        first_name = request.POST.get('First_Name', '').strip()
-        last_name = request.POST.get('Last_Name', '').strip()
-        location = request.POST.get('Location', '').strip()
-        email = request.POST.get('Email', '').strip().lower()
-        salary = request.POST.get('Salary', '').strip()
+        eno = request.POST.get('emp_no', '')
+        first_name = request.POST.get('First_Name', '')
+        last_name = request.POST.get('Last_Name', '')
+        location = request.POST.get('Location', '')
+        email = request.POST.get('Email', '').lower()
+        salary = request.POST.get('Salary', '')
 
         if not eno or not first_name or not last_name or not location or not email or not salary:
             messages.error(request, "All fields are required")
@@ -28,6 +28,14 @@ def insertemp(request):
 
         if Emp.objects.filter(email=email).exists():
             messages.error(request, "Email already exists")
+            return render(request, 'user/insert.html', request.POST)
+        
+        if Emp.objects.filter(First_Name=first_name).exists():
+            messages.error(request, "username already exists")
+            return render(request, 'user/insert.html', request.POST)
+        
+        if Emp.objects.filter(Last_Name=last_name).exists():
+            messages.error(request, "Last_Name already exists")
             return render(request, 'user/insert.html', request.POST)
 
         if not email.endswith("@gmail.com"):
@@ -51,11 +59,11 @@ def editemp(request, eno):
     if request.method == 'GET':
         return render(request, 'user/edit.html', {'res': emp})
     if request.method == 'POST':
-        emp.First_Name = request.POST.get('First_Name', '').strip()
-        emp.Last_Name = request.POST.get('Last_Name', '').strip()
-        emp.Location = request.POST.get('Location', '').strip()
-        emp.email = request.POST.get('Email', '').strip()
-        emp.salary = request.POST.get('Salary', '').strip()
+        emp.First_Name = request.POST.get('First_Name', '')
+        emp.Last_Name = request.POST.get('Last_Name', '')
+        emp.Location = request.POST.get('Location', '')
+        emp.email = request.POST.get('Email', '')
+        emp.salary = request.POST.get('Salary', '')
         if emp.First_Name=='' or emp.Last_Name=='' or emp.Location=='' or emp.email=='' or emp.salary=='':
             messages.error('All fields are required')
             return render(request,'user/edit.html',{'res':emp})

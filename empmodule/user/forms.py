@@ -8,7 +8,7 @@ class UserForm(UserCreationForm):
         fields=['first_name','last_name','username','email']
 
     def clean_email(self):
-        email = self.cleaned_data.get('email', '').strip().lower()
+        email = self.cleaned_data.get('email', '').lower()
         if not email.endswith('@gmail.com'):
             raise ValidationError("Email must end with @gmail.com")
         if User.objects.filter(email=email).exists():
@@ -16,7 +16,7 @@ class UserForm(UserCreationForm):
         return email
 
     def clean_username(self):
-        username = self.cleaned_data.get('username', '').strip()
+        username = self.cleaned_data.get('username', '')
         if User.objects.filter(username=username).exists():
             raise ValidationError("Username already exists — please choose a different username")
         return username
