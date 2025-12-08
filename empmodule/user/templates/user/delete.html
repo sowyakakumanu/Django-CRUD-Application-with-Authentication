@@ -3,6 +3,8 @@
 <form action="" method="post">
     {% csrf_token %}
     <p>Do you want to delete {{res.First_Name}} {{res.Last_Name}} ?</p>
-    <button style="background-color: red;color: white; margin-left: 5vw; margin-top: 2vw;">Confirm</button>
+    <button style="background-color: red;color: white; margin-left: 5vw; margin-top: 2vw; border: none; height:4vh; width: 5vw;">Confirm</button>
+    <button style="background-color: rgb(57, 183, 22);color: white; margin-left: 5vw; margin-top: 2vw; border: none; height:4vh; width: 5vw;"><a href="{% url 'selecturl'}">Cancel</a></button>
+
 </form>
 {% endblock %}

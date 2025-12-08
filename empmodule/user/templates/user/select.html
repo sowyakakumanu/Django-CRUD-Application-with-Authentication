@@ -1,22 +1,44 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
- {% block newcss %}
-  <link rel="stylesheet" href="{% static 'css/select.css' %}"> 
-  {% endblock %} 
-  {% block main %} 
-  <h1><a href="{% url 'inserturl' %}">+Add</a></h1>
-  <table border="1" cellspacing="0">
-     <tr><th>Empno</th><th>First_Name</th><th>Last_Name</th><th>Location</th><th>Email</th><th>Salary</th></tr> 
-     {% for i in res %} 
-     <tr>
-      <td>{{i.empno}}</td>
-      <td>{{i.First_Name}}</td>
-      <td>{{i.Last_Name}}</td>
-      <td>{{i.Location}}</td>
-      <td>{{i.email}}</td>
-      <td>{{i.salary}}</td>
-      <td><button style="background-color: blue;"><a href="{% url 'editurl' i.empno %}" style="text-decoration: none; border: none;">Edit</a></button></td>
-      <td><button style="background-color: red;"><a href="{% url 'deleteurl' i.empno %}" style="text-decoration: none; border: none;">Delete</a></button></td></tr>
-      {% endfor %} 
-    </table> 
+
+{% block newcss %}
+<link rel="stylesheet" href="{% static 'css/select.css' %}">
+{% endblock %}
+
+{% block main %}
+
+<h1><a href="{% url 'inserturl' %}" class="add-btn">+ Add</a></h1>
+
+<table border="1" cellspacing="0">
+    <tr>
+        <th>Empno</th>
+        <th>First_Name</th>
+        <th>Last_Name</th>
+        <th>Location</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for i in res %}
+    <tr>
+        <td>{{ i.empno }}</td>
+        <td>{{ i.First_Name }}</td>
+        <td>{{ i.Last_Name }}</td>
+        <td>{{ i.Location }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.salary }}</td>
+
+        <td>
+            <a href="{% url 'editurl' i.empno %}">Edit</a>
+        </td>
+
+        <td>
+            <a href="{% url 'deleteurl' i.empno %}" >Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}

@@ -1,11 +1,11 @@
-from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+
 class UserForm(UserCreationForm):
     class Meta:
-        model=User
-        fields=['first_name','last_name','username','email']
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email']
 
     def clean_email(self):
         email = self.cleaned_data.get('email', '').lower()

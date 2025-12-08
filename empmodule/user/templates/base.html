@@ -13,13 +13,16 @@
             color: black;
             display: grid;
             grid-template-columns: 2fr 30fr 1fr;
-            
         }
         header .start .h{
             margin-top: 30px;
         }
 
-      
+        header .start a {
+            text-decoration: none;
+            color: black;
+        }
+
         .box {
             display: flex;
             flex-direction: column;
@@ -28,26 +31,30 @@
             width: 100%;
             margin-top: 20px;
         }
-        table {
-        border-collapse: collapse;
-    }
 
-    table td, table th {
-        padding: 6px;
-        border: 1px solid black;
-    }
-    button a{
-        color: white;
-    }
-button{
-    text-decoration: none;
-    border-radius: 2px;
-}
+        table {
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            padding: 6px;
+            border: 1px solid black;
+        }
+
+        button {
+            border-radius: 2px;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
-    {% if request.resolver_match.url_name != 'loginurl' and  request.resolver_match.url_name != 'registerurl' %}
+
+    {% if request.resolver_match.url_name != 'loginurl' and request.resolver_match.url_name != 'registerurl' %}
     <header>
         <div class="start">
             <h3 class="h"><a href="{% url 'loginurl' %}">Home</a></h3>
